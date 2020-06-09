@@ -1,0 +1,32 @@
+<h1>Superbikes</h1>
+<%= link_to "Creat_a_product", new_superbike_path %>
+<table class= "table">
+	<thead>
+		<tr>
+		<td>投票</td>
+		<td>品牌</td>
+		<td>產品</td>
+		<td>排氣量</td>
+		<td>前後  輪胎規格</td>
+		<td>座高</td>
+		<td>台灣售價</td>
+		<td>得票數</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @superbikes.each do |superbike| %>
+		<tr>
+			<td><%= link_to "投票",vote_superbike_path(superbike), method: "post" , data: {confirm: "確定投給這台車?"},class:"btn btn-danger btn-xs" %></td>
+			<td><%= superbike.brand%></td>
+			<td><%= superbike.product%></td>
+			<td><%= superbike.exhaust%></td>
+			<td><%= superbike.specification_of_tyre%></td>
+			<td><%= superbike.height_of_seat%></td>
+			<td><%= superbike.price%></td>
+			<td><%= superbike.vote_logs.size%></td>
+			<td><%= link_to "編輯",edit_superbike_path(superbike)%></td>
+			<td><%= link_to "刪除",superbike_path(superbike),method: "delete",data: {confirm: "Are you sure to delete?"}%></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

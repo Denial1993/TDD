@@ -1,0 +1,17 @@
+<%= simple_form_for(superbike) do |f| %>
+
+	<%= f.input :brand ,label: "品牌"%> <br />
+
+	<%= f.input :product,label: "產品" %> <br />
+
+	<%= f.input :exhaust,label: "排氣量      (請輸入數字)" %><br />
+
+	<%= f.input :specification_of_tyre,label: "前輪&後輪" %> <br />
+
+	<%= f.input :height_of_seat,label: "座高(mm)  請輸入數字" %><br/>
+
+	<%= f.input :price,label: "售價(TWD)" %> <br />
+
+	<%= f.submit %>
+	<%end %>
+	<br/>

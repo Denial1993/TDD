@@ -1,0 +1,7 @@
+<h1>Bmi 計算機</h1>
+
+<%= form_for @bmi_calculator,url: "/bmi/result" do |f|%>
+	身高:<%= f.text_field :body_height %> 公分</br>
+	體重:<%= f.text_field :body_weight %> 公斤</br>
+	<%= f.submit "開始計算" %>
+<% end %>
