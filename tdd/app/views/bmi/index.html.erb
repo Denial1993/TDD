@@ -1,0 +1,9 @@
+<h1>BMI calculator</h1>
+
+<%= form_tag("/bmi/result") do %>
+	身高: <%= text_field_tag ("body_height") %> 公分</br>
+	體重: <%= text_field_tag ("body_weight") %> 公斤</br>
+	年齡: <%= text_field_tag ("age")%> 歲</br>
+	性別: <%= text_field_tag ("gender") %>男請輸入1, 女請輸入0</br>
+	<%= submit_tag ("開始計算")%>
+<%end %>
