@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+	resources :candidates
   get 'bmi' , to: "bmi#index"
   post "bmi/result" ,to: "bmi#result"
 
