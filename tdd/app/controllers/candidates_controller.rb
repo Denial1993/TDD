@@ -1,4 +1,5 @@
 class CandidatesController < ApplicationController
+	before_action :find_candidate, only: [:edit,:destroy,:update,:votes]
 	def index 
 		@candidates = Candidate.all
 	end
@@ -18,12 +19,9 @@ class CandidatesController < ApplicationController
 	end
 
 	def edit
-		@candidate = Candidate.find_by(id: params[:id])
 	end
 
 	def update
-		@candidate = Candidate.find_by(id: params[:id])
-
 		if @candidate.update(candidate_params)
 			redirect_to candidates_path, notice:"更新資料成功!"
 		else
@@ -32,34 +30,23 @@ class CandidatesController < ApplicationController
 	end
 
 	def destroy
-		@candidate = Candidate.find_by(id: params[:id])
-
 		@candidate.destroy if @candidate
 		redirect_to candidates_path,notice: "刪除資料成功!"
 	end
 
 	def votes
-		@candidate = Candidate.find_by(id: params[:id])
-		@candidate.increment(:votes)
-		@candidate.save
+		@candidate.vote_logs.create(ip_address: request.remote_ip) if @candidate
+		#@candidate.increment(:votes)
+		#@candidate.save
 		redirect_to candidates_path,notice: "完成投票!"
 	end
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	private
 	def candidate_params
 		params.require(:candidate).permit(:name,:party,:age,:politics,:votes)
+	end
+	
+	def find_candidate
+		@candidate = Candidate.find_by(id: params[:id])
 	end
 end
