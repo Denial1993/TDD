@@ -13,18 +13,7 @@
 	</thead>
 
 	<tbody>
-		<% @candidates.each do |candidate| %>
-			<tr>
-				<td><%= link_to "投票給這位",votes_candidate_path(candidate),method: "post",date: {confirm: "確定投給這個人?"}, class:"btn btn-danger btn-xs" %></td>
-				<td><%= candidate.name %>(年齡: <%= candidate.age %> 歲)</td>
-				<td><%= candidate.party %></td>
-				<td><%= candidate.politics %></td>
-				<td><%= candidate.vote_logs.size %></td>
-				<td>
-					<%= link_to "編輯",edit_candidate_path(candidate) %>
-					<%= link_to "刪除" ,candidate_path(candidate),method: "delete", data: {confirm: "確認刪除"}%>
-				</td>
-			</tr>
-		<%end%>
+	<%= render partial: "candidate", collection: @candidates %>
+
 	</tbody>
 </table>

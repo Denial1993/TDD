@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 	resources :candidates do
 		member do
-			post :votes
+			post :vote
 		end
 	end
 

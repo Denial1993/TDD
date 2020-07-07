@@ -1,4 +1,5 @@
 class CandidatesController < ApplicationController
+	 #layout "backend"
 	before_action :find_candidate, only: [:edit,:destroy,:update,:votes]
 	def index 
 		@candidates = Candidate.all
@@ -34,7 +35,7 @@ class CandidatesController < ApplicationController
 		redirect_to candidates_path,notice: "刪除資料成功!"
 	end
 
-	def votes
+	def vote
 		@candidate.vote_logs.create(ip_address: request.remote_ip) if @candidate
 		#@candidate.increment(:votes)
 		#@candidate.save
