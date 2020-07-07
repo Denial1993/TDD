@@ -1,5 +1,5 @@
 <h1>候選人列表</h1>
-<%= link_to "新增候選人",new_candidate_path %>
+<%= icon_link_to "新增候選人", new_candidate_path, "knight" %>
 
 <table class = "table" >
 	<thead>
@@ -14,6 +14,16 @@
 
 	<tbody>
 	<%= render partial: "candidate", collection: @candidates %>
+	<!-- 要再縮短可以改這樣 <%= render @candidates %> -->
 
 	</tbody>
 </table>
+
+
+<!--
+但這樣的寫法其實有點過於魔術，而且依賴不少 Rails 裡的「慣例」。如果要讓 <%= render @candidates %> 可以正常運作的話，需要完成以下幾件事：
+
+局部樣版的檔名必須是那包資料的「單數」，以上面這個例子來說，那包資料叫做 @candidates，所以 Partial 的檔名就是 _candidate.html.erb。
+局部樣版檔案必須而且放在對的位置，以這個例子來說，檔案是放在 app/views/candidates 目錄裡。
+局部樣版裡不需要寫迴圈（寫了反而會多跑一層迴圈），裡面用到的區域變數必須是單數，例如 candidate。
+如果沒有按照這些慣例就會出現找不到檔案或路徑的錯誤訊息。-->
