@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 		end
 	end
 
-=begin
+
   get 'bmi' , to: "bmi#index"
   post "bmi/result" ,to: "bmi#result"
 
@@ -28,6 +28,5 @@ Rails.application.routes.draw do
       post :add, path:'add/:id'
     end
   end
-=end
 end
 

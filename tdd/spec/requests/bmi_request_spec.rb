@@ -1,3 +1,4 @@
+=begin
 require 'rails_helper'
 
 RSpec.describe "Bmis", type: :request do
@@ -10,3 +11,4 @@ RSpec.describe "Bmis", type: :request do
   end
 
 end
+=end

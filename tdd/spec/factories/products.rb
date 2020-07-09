@@ -1,9 +1,7 @@
 FactoryBot.define do
   factory :product do
-    name { "MyString" }
+    title { "MyString" }
     description { "MyText" }
-    price { "9.99" }
-    is_available { false }
-    store_id { 1 }
+    price { 1 }
   end
 end

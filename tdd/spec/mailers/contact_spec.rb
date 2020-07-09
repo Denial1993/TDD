@@ -1,7 +1,7 @@
 =begin
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe Article, type: :model do
+RSpec.describe ContactMailer, type: :mailer do
   pending "add some examples to (or delete) #{__FILE__}"
 end
 =end
